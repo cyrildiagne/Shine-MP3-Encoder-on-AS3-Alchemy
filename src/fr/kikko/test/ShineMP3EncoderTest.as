@@ -1,5 +1,7 @@
-package fr.kikko.lab {
+package fr.kikko.test {
 	import assets.GUI;
+
+	import fr.kikko.lab.ShineMP3Encoder;
 
 	import flash.display.Sprite;
 	import flash.events.ErrorEvent;
