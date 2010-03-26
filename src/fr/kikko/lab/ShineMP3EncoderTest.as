@@ -18,9 +18,7 @@ package fr.kikko.lab {
 		private var gui:GUI;
 		
 		public function ShineMP3EncoderTest() {
-			
-			//addChild(new Stats());
-			
+						
 			wavLoader = new FileReference();
 			wavLoader.addEventListener(Event.SELECT, wavSelected);			wavLoader.addEventListener(Event.COMPLETE, wavLoaded);
 			
@@ -33,12 +31,19 @@ package fr.kikko.lab {
 			
 			gui = new GUI();
 			
+			gui.btSave.enabled = false;
+			gui.btSave.addEventListener(MouseEvent.MOUSE_DOWN, saveClicked);
 			gui.btEncode.enabled = false;
 			gui.btEncode.addEventListener(MouseEvent.MOUSE_DOWN, encodeClicked);
 			gui.btWav.addEventListener(MouseEvent.MOUSE_DOWN, loadClicked);
 			gui.progressBar.mode = "manual";
 			
 			addChild(gui);
+		}
+
+		private function saveClicked(event : MouseEvent) : void {
+			
+			mp3Encoder.saveAs();
 		}
 
 		private function loadClicked(event : MouseEvent) : void {
@@ -49,6 +54,8 @@ package fr.kikko.lab {
 		private function wavSelected(event : Event) : void {
 			
 			wavLoader.load();
+			gui.btSave.enabled = false;
+			
 			log(wavLoader.name, "selected");
 		}
 
@@ -87,7 +94,7 @@ package fr.kikko.lab {
 		private function mp3EncodeComplete(event : Event) : void {
 			
 			log("done!");
-			mp3Encoder.saveAs();
+			gui.btSave.enabled = true;
 		}
 	}
 }
