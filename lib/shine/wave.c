@@ -61,6 +61,7 @@ bool wave_open()
     unsigned short  wBlockAlign;
     long            filesize;
     long            header_size;
+    unsigned long	data_size;
 
     //if((config.wave.file = fopen(config.infile,"rb")) == NULL) ERROR("Unable to open file");
 
@@ -95,6 +96,7 @@ bool wave_open()
 
     if(!checkString(config.wave.file,"data")) ERROR("Can't find data chunk");
 
+	data_size = Read32BitsLowHigh(config.wave.file);
     header_size = ftell(config.wave.file);
     fseek(config.wave.file, 0, SEEK_END);
     filesize = ftell(config.wave.file);

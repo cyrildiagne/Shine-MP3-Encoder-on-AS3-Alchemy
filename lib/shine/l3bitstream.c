@@ -49,6 +49,14 @@ void putMyBits( uint32 val, uint16 len )
     putbits( bs, val, len );
 }
 
+void flush_bitstream()
+{
+	if (bs != NULL)
+	{
+		empty_buffer(bs, bs->buf_byte_idx);
+	}
+}
+
 /*
   format_bitstream()
   

@@ -19,6 +19,7 @@
 #include "bitstream.h"
 #include "layer3.h"
 
+void flush_bitstream();
 
 void format_bitstream(int enc[2][2][samp_per_frame2],
                          side_info_t  *side,

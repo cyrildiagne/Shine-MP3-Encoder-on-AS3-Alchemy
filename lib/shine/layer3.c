@@ -154,6 +154,8 @@ int update_compress() {
 		}
 	}
 	
+	flush_bitstream();
+	
 	return 100;
 	//update_status(frames_processed);
 	

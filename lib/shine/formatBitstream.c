@@ -141,7 +141,7 @@ writePartMainData( BF_BitstreamPart *part, BF_FrameResults *results )
 }
 
 static int
-writePartSideInfo( BF_BitstreamPart *part )
+writePartSideInfo( BF_BitstreamPart *part,  BF_FrameResults *unusedArg)
 {
     BF_BitstreamElement *ep;
     int i, bits;
